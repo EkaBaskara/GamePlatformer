@@ -78,12 +78,14 @@ public class EnemyController : MonoBehaviour
         {
             isDie = true;
             rigid.velocity = Vector2.zero;
-            anim.SetBool("IsDie", true);
-            Destroy(this.gameObject, 2);
-            //Data.score += 20;
+            anim.SetBool("EnemyDie", true);
+            Destroy(this.gameObject, 0.8f);
+            Data.score += 20;
             EnemyKilled++;
+            Debug.Log("1 Kill");
             if (EnemyKilled == 3)
             {
+                Debug.Log("3 Kill");
                 SceneManager.LoadScene("Game Over");
             }
         }

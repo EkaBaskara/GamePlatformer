@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        isCanShoot = false;
+        EnemyController.EnemyKilled = 0;
     }
 
     void Update()
@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.tag.Equals("Enemy"))
         {
             isDead = true;
+
+            SceneManager.LoadScene("Game Over");
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -115,7 +117,6 @@ public class PlayerController : MonoBehaviour
             if (!isJump)
             {
                 anim.SetTrigger("run");
-                Debug.Log("Running");
             }
             transform.Translate(1 * Time.deltaTime * 5f, 0, 0);
             transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -125,7 +126,6 @@ public class PlayerController : MonoBehaviour
             if (!isJump)
             {
                 anim.SetTrigger("run");
-                Debug.Log("Running");
             }
             transform.Translate(-1 * Time.deltaTime * 5f, 0, 0);
             transform.localScale = new Vector3(1f, 1f, 1f);

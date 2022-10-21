@@ -18,6 +18,7 @@ public class QuitOrNext : MonoBehaviour
         if (collision.tag.Equals("Player"))
         {
             SceneManager.LoadScene(NameScene);
+            Debug.Log("Next");
         }
     }
 }

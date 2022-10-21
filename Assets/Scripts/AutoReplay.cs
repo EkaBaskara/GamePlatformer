@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class AutoReplay : MonoBehaviour
 {
     float timer = 0;
-    public Text info;
+    public TextMeshProUGUI info;
     void Start()
     {
         if (EnemyController.EnemyKilled == 3)
